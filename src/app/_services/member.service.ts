@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.development';
 import { Member } from '../_interfaces/member';
 import { Observable } from 'rxjs';
 import { CreateMember } from '../_interfaces/create-member';
+import { EditMember } from '../_interfaces/edit-member';
 
 @Injectable({
   providedIn: 'root',
@@ -28,5 +29,9 @@ export class MemberService {
    */
   getMembers(): Observable<Member[]> {
     return this.http.get<Member[]>(this.baseUrl + '/member');
+  }
+
+  editMember(editMember: CreateMember, id: number): Observable<Member> {
+    return this.http.put<Member>(this.baseUrl + '/member/'+  id , editMember);
   }
 }

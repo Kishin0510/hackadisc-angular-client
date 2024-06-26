@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CreateMember } from 'src/app/_interfaces/create-member';
 import { Member } from 'src/app/_interfaces/member';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MemberService } from 'src/app/_services/member.service';
 
 @Component({
@@ -18,6 +19,8 @@ export class CreateMemberComponent implements OnInit {
   constructor(private memberService: MemberService, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.createForm();
+    console.log("creando miembro")
   }
 
   onSubmit() {
@@ -25,7 +28,7 @@ export class CreateMemberComponent implements OnInit {
     this.memberService.createMember(this.newMember).subscribe({
       next: (data) => {
         console.log('Member created successfully',data);
-        this.router.navigate(['/']);
+        this.router.navigate(['/members']);
       }
     });
   }
@@ -34,11 +37,11 @@ export class CreateMemberComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', Validators.required],
       semester: ['', Validators.required],
-      carrer: ['', Validators.required],
+      career: ['', Validators.required],
     });
   }
   goBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/members']);
   }
 
 }

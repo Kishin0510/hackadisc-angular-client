@@ -9,6 +9,7 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { MemberListComponent } from './_pages/member-list/member-list.component';
 import { CreateMemberComponent } from './_components/create/create-member/create-member.component';
 import { UpdateMemberComponent } from './_components/update/update-member/update-member.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { UpdateMemberComponent } from './_components/update/update-member/update
     CreateMemberComponent,
     UpdateMemberComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

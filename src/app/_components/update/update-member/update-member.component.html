@@ -1,1 +1,58 @@
-<p>update-member works!</p>
+<div>
+  <h1 class="font-bold text-2xl text-center mt-5 align-middle">
+    Editar miembro: {{ member.name }}
+  </h1>
+  <div class="flex justify-center items-center">
+    <form class="max-w-md mx-auto" [formGroup]="FormGroup" (ngSubmit)="editMember()">
+      <div class="relative z-0 w-full mb-5 group">
+        <label class="peer-focus:font-medium text-sm mb-6 text-gray-500 dark:text-gray-400">Autor</label>
+        <input type="text" name="floating_author" formControlName="author" id="floating_author"
+          class="block py-2.5 px-0 w-full text-sm mt- text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          required />
+
+      </div>
+      <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="relative z-0 w-full mb-5 group">
+          <label class="peer-focus:font-medium text-sm mb-6 text-gray-500 dark:text-gray-400">Nombre</label>
+          <input type="text" name="floating_first_name" formControlName="name" id="floating_first_name"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            [value]="[member.name]" required />
+
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+          <label class="peer-focus:font-medium text-sm mb-6 text-gray-500 dark:text-gray-400">Email</label>
+          <input type="email" name="floating_format" formControlName="email" id="floating_format"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            [value]="[member.email]" required />
+
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 md:gap-6">
+        <div class="relative z-0 w-full mb-5 group">
+          <label class="peer-focus:font-medium text-sm mb-6 text-gray-500 dark:text-gray-400">Semestre</label>
+
+          <input type="number" formControlName="semester" name="floating_semester"
+            id="floating_semester"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            [value]="[member.semester]" required />
+
+
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+          <label class="peer-focus:font-medium text-sm mb-6 text-gray-500 dark:text-gray-400">Carrera</label>
+          <input type="text" name="floating_career" formControlName="career" id="floating_career"
+            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            [value]="[member.career]" required />
+
+
+        </div>
+      </div>
+      <div class="flex justify-center flex-wrap gap-5">
+        <button type="submit"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Editar</button>
+          <button type="button" (click)="goBack()"
+          class="text-blue-900 bg-blue-100 hover:text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Volver</button>
+        </div>
+      </form>
+  </div>
+</div>
